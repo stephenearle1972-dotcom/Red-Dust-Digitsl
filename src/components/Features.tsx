@@ -1,25 +1,28 @@
 import { motion } from 'motion/react';
 
+const cld = (publicId: string, w: number) =>
+  `https://res.cloudinary.com/dkn6tnxao/image/upload/f_auto,c_scale,q_auto:good,w_${w}/v1/${publicId}`;
+
 const features = [
   {
-    title: "Built for the Bush",
-    description: "We know your clients, your seasons, your challenges. No cookie-cutter templates. We build custom solutions tailored to the unique needs of the wildlife and hospitality industry.",
-    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2668&auto=format&fit=crop"
+    title: "AI-Powered Development",
+    description: "We use cutting-edge AI tools to build sites faster and smarter. What used to take weeks now takes days — without sacrificing quality.",
+    image: 'reddust/backgrounds/wildlife-landscape-2'
   },
   {
     title: "Mobile-First & Lightning Fast",
-    description: "90% of your enquiries come from phones. Our sites are built for speed, ensuring your stunning imagery loads instantly even on patchy bushveld connections.",
-    image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=2670&auto=format&fit=crop"
+    description: "Over 80% of South African web traffic is mobile. Every site we build is optimised for phones first, desktop second.",
+    image: 'reddust/backgrounds/wildlife-landscape-3'
   },
   {
-    title: "AI-Powered Tools",
-    description: "WhatsApp bots that handle enquiries at 2am when your American hunting client is browsing. Capture leads and answer FAQs automatically while you sleep.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2574&auto=format&fit=crop"
+    title: "Real Business Understanding",
+    description: "We're not just developers — we're business owners too. We understand what drives enquiries, bookings, and sales.",
+    image: 'reddust/backgrounds/wildlife-leopard-dramatic'
   },
   {
     title: "Ongoing Support",
-    description: "We don't disappear after launch. Monthly hosting, security updates, and content management are included. Consider us your outsourced digital team.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop"
+    description: "We don't disappear after launch. Monthly hosting, updates, security, and content management included in every package.",
+    image: 'reddust/backgrounds/wildlife-landscape-4'
   }
 ];
 
@@ -28,7 +31,7 @@ export default function Features() {
     <section className="py-24 md:py-32 bg-[#1f1f1f] overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -37,7 +40,7 @@ export default function Features() {
           >
             Why Red Dust Digital?
           </motion.h2>
-          <motion.div 
+          <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: "80px" }}
             viewport={{ once: true }}
@@ -48,8 +51,8 @@ export default function Features() {
 
         <div className="space-y-24 md:space-y-32">
           {features.map((feature, index) => (
-            <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-20`}>
-              <motion.div 
+            <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-10 lg:gap-20`}>
+              <motion.div
                 initial={{ opacity: 0, x: index % 2 === 1 ? 50 : -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -57,17 +60,19 @@ export default function Features() {
                 className="w-full lg:w-1/2"
               >
                 <div className="relative aspect-[4/3] rounded-sm overflow-hidden group">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
-                    style={{ 
-                      backgroundImage: `url(${feature.image})`,
-                    }}
-                  ></div>
+                  <img
+                    src={cld(feature.image, 800)}
+                    srcSet={`${cld(feature.image, 400)} 400w, ${cld(feature.image, 800)} 800w, ${cld(feature.image, 1200)} 1200w`}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    alt={feature.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}

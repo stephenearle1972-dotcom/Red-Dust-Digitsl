@@ -1,7 +1,12 @@
 import { motion } from 'motion/react';
-import { Bot, ShoppingCart, Calendar, Megaphone, Camera } from 'lucide-react';
+import { MessageCircle, Bot, ShoppingCart, Calendar, Megaphone, Camera, MapPin } from 'lucide-react';
 
 const addons = [
+  {
+    icon: <MessageCircle className="w-6 h-6" />,
+    title: "WhatsApp Enquiry Bot",
+    price: "R2,000 setup + R199/mo"
+  },
   {
     icon: <Bot className="w-6 h-6" />,
     title: "AI WhatsApp Assistant",
@@ -25,7 +30,12 @@ const addons = [
   {
     icon: <Camera className="w-6 h-6" />,
     title: "Professional Photography",
-    price: "From R3,500 / day"
+    price: "From R3,500"
+  },
+  {
+    icon: <MapPin className="w-6 h-6" />,
+    title: "Directory Listing (TownConnect)",
+    price: "R199/mo"
   }
 ];
 
@@ -35,7 +45,7 @@ export default function Addons() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
           <div>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -44,7 +54,7 @@ export default function Addons() {
             >
               Power-Ups
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -56,15 +66,15 @@ export default function Addons() {
           </div>
         </div>
 
-        <div className="flex overflow-x-auto pb-8 -mx-6 px-6 snap-x snap-mandatory hide-scrollbar gap-4 md:grid md:grid-cols-3 lg:grid-cols-5 md:overflow-visible md:pb-0 md:px-0 md:mx-0">
+        <div className="flex overflow-x-auto pb-8 -mx-6 px-6 snap-x snap-mandatory hide-scrollbar gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 md:overflow-visible md:pb-0 md:px-0 md:mx-0">
           {addons.map((addon, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="min-w-[260px] md:min-w-0 snap-start bg-[#252525] p-6 rounded-sm border border-white/5 hover:border-gold/30 transition-colors flex flex-col"
+              className="min-w-[240px] md:min-w-0 snap-start bg-[#252525] p-6 rounded-sm border border-white/5 hover:border-gold/30 transition-colors flex flex-col"
             >
               <div className="text-sage mb-4 bg-sage/10 w-12 h-12 rounded-sm flex items-center justify-center">
                 {addon.icon}

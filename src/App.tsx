@@ -1,3 +1,4 @@
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
@@ -11,7 +12,8 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <main className="min-h-screen bg-charcoal text-cream font-sans">
+    <main className="min-h-screen bg-charcoal text-cream font-sans overflow-x-hidden">
+      <Navbar />
       <Hero />
       <About />
       <Services />
