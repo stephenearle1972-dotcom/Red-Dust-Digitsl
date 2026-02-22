@@ -1,20 +1,20 @@
 import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 
-const cld = (publicId: string, w: number) =>
-  `https://res.cloudinary.com/dkn6tnxao/image/upload/f_auto,c_scale,q_auto:good,w_${w}/v1/${publicId}`;
+const unsplash = (id: string, w: number) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
-const HERO_BG = 'reddust/backgrounds/wildlife-award-hero';
+const HERO_BG = 'photo-1451187580459-43490279c0fa';
 
 export default function Hero() {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src={cld(HERO_BG, 1920)}
-          srcSet={`${cld(HERO_BG, 400)} 400w, ${cld(HERO_BG, 800)} 800w, ${cld(HERO_BG, 1200)} 1200w, ${cld(HERO_BG, 1920)} 1920w`}
+          src={unsplash(HERO_BG, 1920)}
+          srcSet={`${unsplash(HERO_BG, 400)} 400w, ${unsplash(HERO_BG, 800)} 800w, ${unsplash(HERO_BG, 1200)} 1200w, ${unsplash(HERO_BG, 1920)} 1920w`}
           sizes="100vw"
-          alt="Wildlife photography background"
+          alt="Abstract technology background"
           fetchPriority="high"
           className="w-full h-full object-cover"
         />

@@ -1,17 +1,17 @@
 import { motion } from 'motion/react';
 
-const cld = (publicId: string, w: number) =>
-  `https://res.cloudinary.com/dkn6tnxao/image/upload/f_auto,c_scale,q_auto:good,w_${w}/v1/${publicId}`;
+const unsplash = (id: string, w: number) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
-const BG_IMAGE = 'reddust/backgrounds/wildlife-landscape-1';
+const BG_IMAGE = 'photo-1498050108023-c5249f4df085';
 
 export default function About() {
   return (
     <section id="about" className="py-24 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src={cld(BG_IMAGE, 1200)}
-          srcSet={`${cld(BG_IMAGE, 400)} 400w, ${cld(BG_IMAGE, 800)} 800w, ${cld(BG_IMAGE, 1200)} 1200w`}
+          src={unsplash(BG_IMAGE, 1200)}
+          srcSet={`${unsplash(BG_IMAGE, 400)} 400w, ${unsplash(BG_IMAGE, 800)} 800w, ${unsplash(BG_IMAGE, 1200)} 1200w`}
           sizes="100vw"
           alt=""
           className="w-full h-full object-cover"

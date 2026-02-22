@@ -1,28 +1,28 @@
 import { motion } from 'motion/react';
 
-const cld = (publicId: string, w: number) =>
-  `https://res.cloudinary.com/dkn6tnxao/image/upload/f_auto,c_scale,q_auto:good,w_${w}/v1/${publicId}`;
+const unsplash = (id: string, w: number) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 const features = [
   {
     title: "AI-Powered Development",
     description: "We use cutting-edge AI tools to build sites faster and smarter. What used to take weeks now takes days — without sacrificing quality.",
-    image: 'reddust/backgrounds/wildlife-landscape-2'
+    image: 'photo-1677442136019-21780ecad995'
   },
   {
     title: "Mobile-First & Lightning Fast",
     description: "Over 80% of South African web traffic is mobile. Every site we build is optimised for phones first, desktop second.",
-    image: 'reddust/backgrounds/wildlife-landscape-3'
+    image: 'photo-1512941937669-90a1b58e7e9c'
   },
   {
     title: "Real Business Understanding",
     description: "We're not just developers — we're business owners too. We understand what drives enquiries, bookings, and sales.",
-    image: 'reddust/backgrounds/wildlife-leopard-dramatic'
+    image: 'photo-1552664730-d307ca884978'
   },
   {
     title: "Ongoing Support",
     description: "We don't disappear after launch. Monthly hosting, updates, security, and content management included in every package.",
-    image: 'reddust/backgrounds/wildlife-landscape-4'
+    image: 'photo-1573497019940-1c28c88b4f3e'
   }
 ];
 
@@ -61,8 +61,8 @@ export default function Features() {
               >
                 <div className="relative aspect-[4/3] rounded-sm overflow-hidden group">
                   <img
-                    src={cld(feature.image, 800)}
-                    srcSet={`${cld(feature.image, 400)} 400w, ${cld(feature.image, 800)} 800w, ${cld(feature.image, 1200)} 1200w`}
+                    src={unsplash(feature.image, 800)}
+                    srcSet={`${unsplash(feature.image, 400)} 400w, ${unsplash(feature.image, 800)} 800w, ${unsplash(feature.image, 1200)} 1200w`}
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     alt={feature.title}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
