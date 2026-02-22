@@ -37,7 +37,7 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-24 md:py-32 bg-charcoal">
+    <section id="portfolio" className="py-24 md:py-32 bg-[#f8f5f0]">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
@@ -46,7 +46,7 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-heading text-3xl md:text-5xl font-bold text-cream mb-4"
+              className="font-heading text-3xl md:text-5xl font-bold text-charcoal mb-4"
             >
               Our Work
             </motion.h2>
@@ -64,7 +64,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
             href="#contact"
-            className="text-gold hover:text-cream transition-colors flex items-center gap-2 uppercase tracking-wide text-sm font-medium"
+            className="text-dust hover:text-charcoal transition-colors flex items-center gap-2 uppercase tracking-wide text-sm font-medium"
           >
             Start Your Project <span aria-hidden="true">&rarr;</span>
           </motion.a>
@@ -81,9 +81,9 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-sm cursor-pointer block"
+              className="group relative overflow-hidden rounded-sm cursor-pointer block shadow-lg shadow-black/10"
             >
-              <div className="aspect-video overflow-hidden bg-white/5">
+              <div className="aspect-video overflow-hidden bg-charcoal/5">
                 <img
                   src={cld(project.image, 800)}
                   srcSet={`${cld(project.image, 400)} 400w, ${cld(project.image, 800)} 800w, ${cld(project.image, 1200)} 1200w`}

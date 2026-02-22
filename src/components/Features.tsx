@@ -1,36 +1,48 @@
 import { motion } from 'motion/react';
+import { Cpu, Smartphone, Briefcase, HeadphonesIcon } from 'lucide-react';
+import type { ReactNode } from 'react';
 
-const unsplash = (id: string, w: number) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
-
-const features = [
+const features: { icon: ReactNode; title: string; description: string }[] = [
   {
+    icon: <Cpu className="w-8 h-8" />,
     title: "AI-Powered Development",
-    description: "We use cutting-edge AI tools to build sites faster and smarter. What used to take weeks now takes days — without sacrificing quality.",
-    image: 'photo-1677442136019-21780ecad995'
+    description: "We use cutting-edge AI tools to build sites faster and smarter. What used to take weeks now takes days — without sacrificing quality."
   },
   {
+    icon: <Smartphone className="w-8 h-8" />,
     title: "Mobile-First & Lightning Fast",
-    description: "Over 80% of South African web traffic is mobile. Every site we build is optimised for phones first, desktop second.",
-    image: 'photo-1512941937669-90a1b58e7e9c'
+    description: "Over 80% of South African web traffic is mobile. Every site we build is optimised for phones first, desktop second."
   },
   {
+    icon: <Briefcase className="w-8 h-8" />,
     title: "Real Business Understanding",
-    description: "We're not just developers — we're business owners too. We understand what drives enquiries, bookings, and sales.",
-    image: 'photo-1552664730-d307ca884978'
+    description: "We're not just developers — we're business owners too. We understand what drives enquiries, bookings, and sales."
   },
   {
+    icon: <HeadphonesIcon className="w-8 h-8" />,
     title: "Ongoing Support",
-    description: "We don't disappear after launch. Monthly hosting, updates, security, and content management included in every package.",
-    image: 'photo-1573497019940-1c28c88b4f3e'
+    description: "We don't disappear after launch. Monthly hosting, updates, security, and content management included in every package."
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
 export default function Features() {
   return (
-    <section className="py-24 md:py-32 bg-[#1f1f1f] overflow-hidden">
+    <section className="py-24 md:py-32 bg-[#1f1f1f]">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,46 +61,31 @@ export default function Features() {
           ></motion.div>
         </div>
 
-        <div className="space-y-24 md:space-y-32">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto"
+        >
           {features.map((feature, index) => (
-            <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-10 lg:gap-20`}>
-              <motion.div
-                initial={{ opacity: 0, x: index % 2 === 1 ? 50 : -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
-                className="w-full lg:w-1/2"
-              >
-                <div className="relative aspect-[4/3] rounded-sm overflow-hidden group">
-                  <img
-                    src={unsplash(feature.image, 800)}
-                    srcSet={`${unsplash(feature.image, 400)} 400w, ${unsplash(feature.image, 800)} 800w, ${unsplash(feature.image, 1200)} 1200w`}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    alt={feature.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-transparent transition-colors duration-500"></div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="w-full lg:w-1/2"
-              >
-                <h3 className="font-heading text-2xl md:text-3xl font-bold text-gold mb-6">
-                  {feature.title}
-                </h3>
-                <p className="text-cream/80 text-lg leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            </div>
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="bg-charcoal p-8 md:p-10 rounded-sm border border-white/5 hover:border-dust/30 transition-all duration-300 group"
+            >
+              <div className="mb-6 p-4 bg-dust/10 inline-block rounded-sm text-dust group-hover:bg-dust/20 transition-colors">
+                {feature.icon}
+              </div>
+              <h3 className="font-heading text-xl md:text-2xl font-semibold text-gold mb-4">
+                {feature.title}
+              </h3>
+              <p className="text-cream/70 leading-relaxed">
+                {feature.description}
+              </p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

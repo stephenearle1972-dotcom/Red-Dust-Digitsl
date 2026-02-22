@@ -51,7 +51,7 @@ const packages = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 md:py-32 bg-charcoal">
+    <section id="pricing" className="py-24 md:py-32 bg-[#f8f5f0]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2
@@ -59,7 +59,7 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-heading text-3xl md:text-5xl font-bold text-cream mb-4"
+            className="font-heading text-3xl md:text-5xl font-bold text-charcoal mb-4"
           >
             Packages
           </motion.h2>
@@ -75,7 +75,7 @@ export default function Pricing() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-cream/70 max-w-2xl mx-auto"
+            className="text-charcoal/60 max-w-2xl mx-auto"
           >
             Transparent pricing. No hidden fees. Choose the package that fits your business stage.
           </motion.p>
@@ -89,7 +89,7 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className={`relative bg-[#222] rounded-sm border ${pkg.popular ? 'border-dust shadow-[0_0_30px_rgba(196,87,42,0.15)] md:-translate-y-4' : 'border-white/5'} p-6 md:p-8 flex flex-col h-full`}
+              className={`relative bg-white rounded-sm border ${pkg.popular ? 'border-dust shadow-[0_0_30px_rgba(196,87,42,0.12)] md:-translate-y-4' : 'border-charcoal/10'} p-6 md:p-8 flex flex-col h-full`}
             >
               {pkg.popular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dust text-white px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-sm">
@@ -98,21 +98,21 @@ export default function Pricing() {
               )}
 
               <div className="mb-8">
-                <h3 className="font-heading text-2xl font-semibold text-gold mb-2">{pkg.name}</h3>
-                <p className="text-cream/60 text-sm h-10">{pkg.description}</p>
+                <h3 className="font-heading text-2xl font-semibold text-dust mb-2">{pkg.name}</h3>
+                <p className="text-charcoal/50 text-sm h-10">{pkg.description}</p>
               </div>
 
-              <div className="mb-8 pb-8 border-b border-white/10">
+              <div className="mb-8 pb-8 border-b border-charcoal/10">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-3xl md:text-4xl font-bold text-cream">{pkg.price}</span>
-                  <span className="text-cream/50 text-sm">setup</span>
+                  <span className="text-3xl md:text-4xl font-bold text-charcoal">{pkg.price}</span>
+                  <span className="text-charcoal/40 text-sm">setup</span>
                 </div>
                 <div className="text-dust font-medium mt-1">+ {pkg.monthly}</div>
               </div>
 
               <ul className="space-y-4 mb-8 flex-grow">
                 {pkg.features.map((feature, fIndex) => (
-                  <li key={fIndex} className="flex items-start gap-3 text-cream/80 text-sm">
+                  <li key={fIndex} className="flex items-start gap-3 text-charcoal/70 text-sm">
                     <Check className="w-5 h-5 text-sage shrink-0" />
                     <span>{feature}</span>
                   </li>
@@ -124,7 +124,7 @@ export default function Pricing() {
                 className={`w-full py-4 text-center rounded-sm font-medium uppercase tracking-wide text-sm transition-colors duration-300 min-h-[44px] flex items-center justify-center ${
                   pkg.popular
                     ? 'bg-dust text-white hover:bg-dust/90'
-                    : 'bg-transparent border border-white/20 text-cream hover:border-gold hover:text-gold'
+                    : 'bg-transparent border border-charcoal/20 text-charcoal hover:border-dust hover:text-dust'
                 }`}
               >
                 Get Started
@@ -140,8 +140,8 @@ export default function Pricing() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-16"
         >
-          <p className="text-cream/70">
-            Need something custom? <a href="#contact" className="text-gold hover:underline underline-offset-4">Let's talk.</a>
+          <p className="text-charcoal/60">
+            Need something custom? <a href="#contact" className="text-dust hover:underline underline-offset-4">Let's talk.</a>
           </p>
         </motion.div>
       </div>

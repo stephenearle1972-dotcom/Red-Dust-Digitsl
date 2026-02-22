@@ -41,7 +41,7 @@ const addons = [
 
 export default function Addons() {
   return (
-    <section className="py-20 bg-[#1a1a1a] border-y border-white/5">
+    <section className="py-20 bg-[#f8f5f0] border-y border-charcoal/5">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
           <div>
@@ -50,7 +50,7 @@ export default function Addons() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-heading text-2xl md:text-4xl font-bold text-cream mb-2"
+              className="font-heading text-2xl md:text-4xl font-bold text-charcoal mb-2"
             >
               Power-Ups
             </motion.h2>
@@ -59,7 +59,7 @@ export default function Addons() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-cream/60"
+              className="text-charcoal/60"
             >
               Add these modules to any package at any time.
             </motion.p>
@@ -74,12 +74,12 @@ export default function Addons() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="min-w-[240px] md:min-w-0 snap-start bg-[#252525] p-6 rounded-sm border border-white/5 hover:border-gold/30 transition-colors flex flex-col"
+              className="min-w-[240px] md:min-w-0 snap-start bg-white p-6 rounded-sm border border-charcoal/10 hover:border-dust/30 transition-colors flex flex-col"
             >
-              <div className="text-sage mb-4 bg-sage/10 w-12 h-12 rounded-sm flex items-center justify-center">
+              <div className="text-dust mb-4 bg-dust/10 w-12 h-12 rounded-sm flex items-center justify-center">
                 {addon.icon}
               </div>
-              <h3 className="font-heading font-semibold text-cream mb-2">{addon.title}</h3>
+              <h3 className="font-heading font-semibold text-charcoal mb-2">{addon.title}</h3>
               <p className="text-dust text-sm font-medium mt-auto">{addon.price}</p>
             </motion.div>
           ))}
